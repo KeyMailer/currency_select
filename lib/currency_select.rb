@@ -24,7 +24,7 @@ module CurrencySelect
     unless const_defined?('CURRENCIES')
       CURRENCIES = Money::Currency.table.inject([]) do |array, (_, currency)|
         array << [
-          "#{currency[:name]} - #{currency[:iso_code]}", currency[:iso_code]
+          "#{currency[:name]} - #{currency[:iso_code]} - #{currency[:symbol]}", currency[:iso_code]
         ]
       end
       # sort by the label (not by the ISO code)
